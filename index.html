@@ -59,8 +59,6 @@
       border-radius: 10px;
       cursor: pointer;
     }
-
-    /* Hujan Love */
     .heart {
       position: fixed;
       top: -50px;
@@ -76,17 +74,21 @@
         opacity: 0;
       }
     }
+    #message {
+      margin-top: 30px;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #0d6efd;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Tombol Play di paling atas -->
   <button class="play-btn" onclick="toggleMusic()">Play/Pause Lagu</button>
 
-  <!-- Judul -->
   <h1>PEMILIK SENYUM INDAH</h1>
 
-  <!-- Puisi -->
   <div class="poem">
     Jatuh cinta padamu adalah suatu<br>
     hal yang sangat indah...<br>
@@ -103,14 +105,16 @@
     dan mampu meredakan semua lara...
   </div>
 
-  <!-- Tombol Love -->
   <div class="buttons">
     <button class="love-btn" onclick="rainLove()">I love you 💙</button>
   </div>
 
+  <!-- Pesan I LOVE YOU MORE -->
+  <div id="message"></div>
+
   <!-- Musik -->
   <audio id="bg-music" loop>
-    <source src="https://docs.google.com/uc?export=open&id=1QFzHTIXBFWM2M2Ad0N1mZcHVHChyVuVw" type="audio/mp3">
+    <source src="wwd.mp3juice.blog - Virgoun - Surat Cinta Untuk Starla A Love Letter To Starla (Official Lyric Video) (320 KBps).mp3" type="audio/mp3">
     Browser kamu tidak mendukung audio.
   </audio>
 
@@ -139,6 +143,12 @@
           heart.remove();
         }, 3000);
       }
+
+      const messageDiv = document.getElementById('message');
+      messageDiv.textContent = "I LOVE YOU MORE💙";
+      setTimeout(() => {
+        messageDiv.textContent = "";
+      }, 3000);
     }
   </script>
 </body>
