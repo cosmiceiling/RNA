@@ -6,54 +6,54 @@
   <title>Pemilik Senyum Indah</title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   <style>
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
+      height: 100%;
       background-color: #ffffff;
       color: #333;
       font-family: 'Open Sans', sans-serif;
+      overflow: hidden;
+    }
+    body {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 40px 20px;
-      overflow-x: hidden;
+      justify-content: center;
+      text-align: center;
+      transform: scale(0.85); /* Skalakan isi agar lebih kecil dan muat */
     }
     .play-btn {
       background-color: #dc3545;
       color: white;
-      padding: 12px 20px;
-      font-size: 1em;
+      padding: 10px 18px;
+      font-size: 0.9em;
       border: none;
       border-radius: 10px;
       cursor: pointer;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
     h1 {
-      font-size: 2.5em;
+      font-size: 2em;
       font-weight: bold;
-      margin-bottom: 10px;
+      margin: 10px 0;
       color: #000000;
-      text-align: center;
     }
     .poem {
-      max-width: 700px;
-      font-size: 1.2em;
-      line-height: 1.8;
+      max-width: 600px;
+      font-size: 1em;
+      line-height: 1.6;
       white-space: pre-line;
-      text-align: center;
-      margin-top: 20px;
+      margin-top: 10px;
     }
     .buttons {
-      margin-top: 40px;
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
+      margin-top: 25px;
     }
     .love-btn {
       background-color: #0d6efd;
       color: white;
-      padding: 12px 20px;
-      font-size: 1em;
+      padding: 10px 18px;
+      font-size: 0.9em;
       border: none;
       border-radius: 10px;
       cursor: pointer;
@@ -72,21 +72,6 @@
         transform: translateY(100vh);
         opacity: 0;
       }
-    }
-    #message {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 1.5em;
-      font-weight: bold;
-      color: #0d6efd;
-      background-color: rgba(255, 255, 255, 0.9);
-      padding: 15px 25px;
-      border-radius: 12px;
-      opacity: 0;
-      transition: opacity 0.4s ease-in-out;
-      z-index: 999;
     }
   </style>
 </head>
@@ -116,10 +101,7 @@
     <button class="love-btn" onclick="rainLove()">I love you 💙</button>
   </div>
 
-  <!-- Pesan tengah -->
-  <div id="message"></div>
-
-  <!-- Lagu -->
+  <!-- Musik -->
   <audio id="bg-music" loop>
     <source src="wwd.mp3juice.blog - Virgoun - Surat Cinta Untuk Starla A Love Letter To Starla (Official Lyric Video) (320 KBps).mp3" type="audio/mp3">
     Browser kamu tidak mendukung audio.
@@ -153,12 +135,7 @@
         }, 3000);
       }
 
-      const msg = document.getElementById("message");
-      msg.textContent = "I LOVE YOU MORE💙";
-      msg.style.opacity = 1;
-      setTimeout(() => {
-        msg.style.opacity = 0;
-      }, 3000);
+      alert("I LOVE YOU MORE💙");
     }
   </script>
 </body>
