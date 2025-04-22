@@ -73,18 +73,20 @@
         opacity: 0;
       }
     }
-    #notification {
+    #message {
       position: fixed;
-      top: 20px;
-      right: 20px;
-      background-color: #0d6efd;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 10px;
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out;
-      z-index: 1000;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.5em;
       font-weight: bold;
+      color: #0d6efd;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 15px 25px;
+      border-radius: 12px;
+      opacity: 0;
+      transition: opacity 0.4s ease-in-out;
+      z-index: 999;
     }
   </style>
 </head>
@@ -114,13 +116,16 @@
     <button class="love-btn" onclick="rainLove()">I love you 💙</button>
   </div>
 
-  <div id="notification">I LOVE YOU MORE💙</div>
+  <!-- Pesan tengah -->
+  <div id="message"></div>
 
+  <!-- Lagu -->
   <audio id="bg-music" loop>
     <source src="wwd.mp3juice.blog - Virgoun - Surat Cinta Untuk Starla A Love Letter To Starla (Official Lyric Video) (320 KBps).mp3" type="audio/mp3">
     Browser kamu tidak mendukung audio.
   </audio>
 
+  <!-- Script -->
   <script>
     const music = document.getElementById("bg-music");
     const playBtn = document.getElementById("playBtn");
@@ -148,11 +153,11 @@
         }, 3000);
       }
 
-      // Show notification
-      const notif = document.getElementById("notification");
-      notif.style.opacity = 1;
+      const msg = document.getElementById("message");
+      msg.textContent = "I LOVE YOU MORE💙";
+      msg.style.opacity = 1;
       setTimeout(() => {
-        notif.style.opacity = 0;
+        msg.style.opacity = 0;
       }, 3000);
     }
   </script>
