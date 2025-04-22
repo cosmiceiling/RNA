@@ -28,7 +28,6 @@
       margin-bottom: 30px;
     }
     h1 {
-      font-family: 'Open Sans', sans-serif;
       font-size: 2.5em;
       font-weight: bold;
       margin-bottom: 10px;
@@ -74,18 +73,24 @@
         opacity: 0;
       }
     }
-    #message {
-      margin-top: 30px;
-      font-size: 1.5em;
+    #notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #0d6efd;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 10px;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      z-index: 1000;
       font-weight: bold;
-      color: #0d6efd;
-      text-align: center;
     }
   </style>
 </head>
 <body>
 
-  <button class="play-btn" onclick="toggleMusic()">Play/Pause Lagu</button>
+  <button class="play-btn" id="playBtn" onclick="toggleMusic()">Play</button>
 
   <h1>PEMILIK SENYUM INDAH</h1>
 
@@ -109,24 +114,24 @@
     <button class="love-btn" onclick="rainLove()">I love you 💙</button>
   </div>
 
-  <!-- Pesan I LOVE YOU MORE -->
-  <div id="message"></div>
+  <div id="notification">I LOVE YOU MORE💙</div>
 
-  <!-- Musik -->
   <audio id="bg-music" loop>
     <source src="wwd.mp3juice.blog - Virgoun - Surat Cinta Untuk Starla A Love Letter To Starla (Official Lyric Video) (320 KBps).mp3" type="audio/mp3">
     Browser kamu tidak mendukung audio.
   </audio>
 
-  <!-- Script -->
   <script>
     const music = document.getElementById("bg-music");
+    const playBtn = document.getElementById("playBtn");
 
     function toggleMusic() {
       if (music.paused) {
         music.play();
+        playBtn.textContent = "Pause";
       } else {
         music.pause();
+        playBtn.textContent = "Play";
       }
     }
 
@@ -138,16 +143,16 @@
         heart.style.left = Math.random() * 100 + 'vw';
         heart.style.animationDuration = (Math.random() * 2 + 2) + 's';
         document.body.appendChild(heart);
-
         setTimeout(() => {
           heart.remove();
         }, 3000);
       }
 
-      const messageDiv = document.getElementById('message');
-      messageDiv.textContent = "I LOVE YOU MORE💙";
+      // Show notification
+      const notif = document.getElementById("notification");
+      notif.style.opacity = 1;
       setTimeout(() => {
-        messageDiv.textContent = "";
+        notif.style.opacity = 0;
       }, 3000);
     }
   </script>
